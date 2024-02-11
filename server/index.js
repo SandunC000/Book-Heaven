@@ -63,6 +63,19 @@ async function run() {
             }
         });
 
+        //get single book
+        app.get("/get-book/:id", async (req, res) => {
+            try {
+                const id = req.params.id;
+                const filter = { _id: new ObjectId(id) };
+                const book = await booksCollection.findOne(filter);        
+                res.send(book);
+            } catch (error) {
+                console.error("Error fetching a single book:", error);
+                res.status(500).send({ success: false, message: "Internal server error." });
+            }
+        });
+
         //update a book
         app.patch("/update-book/:id", async (req, res) => {
             try {

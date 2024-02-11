@@ -7,4 +7,8 @@ export const navLinks = [
         id: "library",
         title: "Books Library",
     },
+    {
+        id: "addBook",
+        title: "Add a Book",
+    },
 ];

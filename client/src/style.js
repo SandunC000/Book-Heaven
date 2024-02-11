@@ -10,12 +10,10 @@ const styles = {
   bookName: "font-poppins font-semibold text-[28px] text-white my-10 text-center",
   author: "font-poppins font-normal text-[18px] text-white my-10 text-center",
   bookDetails: "font-poppins font-normal text-[16px] text-white text-center leading-[30.8px]",
-  button: "rounded-full mt-2 py-2 px-3 bg-dimWhite font-poppins text-primary",
+  button: "rounded-full mt-2 py-2 px-3 bg-dimWhite font-poppins text-primary font-semibold",
 
-  addBookTitle: "font-poppins font-semibold text-2xl text-gray-800 mb-4",
-  addBookForm: "flex flex-col",
-  addBookFormLabel: "font-poppins font-semibold text-lg text-gray-800 mb-2",
-  addBookFormInput: "w-full px-4 py-2 mb-4 border rounded",
+  formInput: "appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3",
+  formLabel: "font-poppins font-normal text-dimWhite text-[20px]",
   addButton: "bg-green-500 text-white font-semibold py-2 rounded cursor-pointer transition duration-300 hover:bg-green-600",
 
   flexCenter: "flex justify-center items-center",

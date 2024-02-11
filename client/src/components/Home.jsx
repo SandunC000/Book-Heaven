@@ -2,7 +2,7 @@ import styles from "../style";
 
 const Home = () => {
   return (
-    <section id="home" className="md:flex-row flex-col py-6 ml-3 h-[500px]">
+    <section id="home" className="md:flex-row flex-col py-6 ml-3 h-screen">
       <div>
         <h1 className={`${styles.heading1}`}>Book Heaven</h1>
 

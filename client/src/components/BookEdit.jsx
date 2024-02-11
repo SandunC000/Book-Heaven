@@ -1,28 +1,31 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import styles from "../style";
 
-const BookDetails = () => {
+const BookEdit = () => {
   const [book, setBook] = useState(null);
-  const { id } = useParams();
+  const { bookId } = useParams();
 
   useEffect(() => {
     const fetchBookDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/get-book/${id}`);
-        setBook(response.data[0]);
+        const response = await axios.get(`http://localhost:3000/get-book/${bookId}`);
+        setBook(response.data);
       } catch (error) {
         console.error("Error fetching book:", error);
       }
     };
 
     fetchBookDetails();
-  }, [id]);
+  }, [bookId]);
 
   return (
-    <div className="text-white">
+    <div className="bg-primary h-screen">
       {book ? (
-        <div>
+        <div className="">
+          <h1 className={`${styles.heading2}`}>Edit Book</h1>
+
           <h2>{book.title}</h2>
           <p>Author: {book.author}</p>
           {/* Add more details as needed */}
@@ -34,4 +37,4 @@ const BookDetails = () => {
   );
 };
 
-export default BookDetails;
+export default BookEdit;

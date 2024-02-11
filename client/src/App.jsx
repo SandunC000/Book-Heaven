@@ -1,13 +1,7 @@
 import { useState } from "react";
-import { BookList, AddBook, Navbar, Home, BookDetails } from "./components";
+import { BookList, AddBook, Navbar, Home,} from "./components";
 import "./index.css";
 import styles from "./style";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -18,11 +12,6 @@ const App = () => {
 
   return (
     <div className="bg-primary w-full overflow-hidden">
-      <Router>
-        <Routes>
-          <Route path="/get-book/:id" element={<BookDetails />} />
-        </Routes>
-
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
             <Navbar />
@@ -41,7 +30,6 @@ const App = () => {
             <AddBook onAddBook={handleAddBook} />
           </div>
         </div>
-      </Router>
     </div>
   );
 };

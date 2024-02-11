@@ -9,6 +9,6 @@ export const navLinks = [
     },
     {
         id: "addBook",
-        title: "Add a Book",
+        title: "Add a New Book",
     },
 ];

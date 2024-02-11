@@ -25,6 +25,7 @@
   box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
+
 .feature-card:hover {
   background: var(--black-gradient);
   box-shadow: var(--card-shadow);
@@ -36,9 +37,14 @@
 
 .feedback-card {
   background: transparent;
+  word-wrap: break-word;
+  overflow: auto;
 }
 
 .feedback-card:hover {
   background: var(--black-gradient);
 }
 
+.feedback-card-is-read {
+  background: var(--black-gradient);
+}

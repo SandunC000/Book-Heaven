@@ -20,7 +20,7 @@ const BookList = () => {
   }, []);
 
   const handleEdit = (bookId) => {
-    return <Navigate to={`/get-book/${bookId}?edit=true`} />;
+    Navigate(`/get-book/${bookId}`);
   };
 
   const handleDelete = async (bookId) => {
@@ -47,14 +47,16 @@ const BookList = () => {
         <h2 className={`${styles.heading1}`}>Book List</h2>
       </div>
 
-      <div className="flex flex-row flex-wrap justify-center">
+      <div className={`${styles.flexCenter} flex-row flex-wrap`}>
         {books.length > 0 ? (
           books.map((book) => (
             <div
               key={book._id}
-              className="flex-col px-[10px] py-[20px] rounded-[20px] max-w-[350px] min-w-[350px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card clickable"
+              className={`flex justify-between flex-col px-7 py-5 rounded-[20px] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card ${
+                book.isRead ? "feedback-card-is-read" : ""
+              }`}
             >
-              <Link to={`/get-book/${book._id}`}>
+              <div>
                 <p className={`${styles.bookName}`}>{book.title}</p>
                 <p className={`${styles.author}`}>- {book.author} -</p>
                 <div className="flex flex-col">
@@ -71,23 +73,26 @@ const BookList = () => {
                     </span>
                   </p>
                 </div>
-              </Link>
+              </div>
               <div className="flex justify-between mt-4 text-white">
-                <button
-                  className={`${styles.button}`}
-                  onClick={() => handleEdit(book._id)}
-                >
-                  Edit
-                </button>
+                <Link key={book} to={`/bookedit/${book._id}`}>
+                  <button
+                    className={`${styles.button}`}
+                    onClick={() => handleEdit(book._id)}
+                  >
+                    Edit
+                  </button>
+                </Link>
+
                 <button
                   onClick={() => handleDelete(book._id)}
-                  className={`${styles.button}`}
+                  className={`${styles.button} ml-2`}
                 >
                   Delete
                 </button>
                 <button
                   onClick={() => handleMarkAsRead(book._id)}
-                  className={`${styles.button}`}
+                  className={`${styles.button} ml-2`}
                 >
                   Mark as Read
                 </button>

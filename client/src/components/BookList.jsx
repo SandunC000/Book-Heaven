@@ -42,7 +42,7 @@ const BookList = () => {
   };
 
   return (
-    <section id="library">
+    <section id='library'>
       <div className={`flex flex-col flex-row`}>
         <h2 className={`${styles.heading1}`}>Book List</h2>
       </div>
@@ -59,11 +59,11 @@ const BookList = () => {
               <div>
                 <p className={`${styles.bookName}`}>{book.title}</p>
                 <p className={`${styles.author}`}>- {book.author} -</p>
-                <div className="flex flex-col">
+                <div className='flex flex-col'>
                   <p className={`${styles.bookDetails}`}>
                     Genre: {book.genre}
                     <br />
-                    Published Date: {book.publication_date}
+                    Published Date: {book.publicationDate}
                     <br />
                     ISBN: {book.ISBN}
                     <br />
@@ -74,19 +74,16 @@ const BookList = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-between mt-4 text-white">
+              <div className='flex justify-between mt-4 text-white'>
                 <Link key={book} to={`/bookedit/${book._id}`}>
-                  <button
-                    className={`${styles.button}`}
-                    onClick={() => handleEdit(book._id)}
-                  >
+                  <button className={`${styles.button}`} onClick={() => handleEdit(book._id)}>
                     Edit
                   </button>
                 </Link>
 
                 <button
                   onClick={() => handleDelete(book._id)}
-                  className={`${styles.button} ml-2`}
+                  className={`${styles.buttonCancel} ml-2`}
                 >
                   Delete
                 </button>
@@ -100,7 +97,12 @@ const BookList = () => {
             </div>
           ))
         ) : (
-          <div>//add a card</div>
+          <div
+            className={`text-center px-20 py-10 rounded-[20px] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 text-white feedback-card-is-read`}
+          >
+            There are no books in the library. <br />
+            Add a New Book to continue.
+          </div>
         )}
       </div>
     </section>

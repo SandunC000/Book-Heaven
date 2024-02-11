@@ -81,10 +81,11 @@ async function run() {
             try {
                 const id = req.params.id;
                 const data = req.body;
+                const { _id, ...updatedFields } = data;
                 const filter = { _id: new ObjectId(id) };
                 const updateBook = {
                     $set: {
-                        ...data
+                        ...updatedFields
                     }
                 };
                 const options = { upsert: true };

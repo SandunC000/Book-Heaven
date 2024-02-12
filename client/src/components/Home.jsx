@@ -1,4 +1,4 @@
-import styles from "../style";
+import styles from "../style"
 
 const Home = () => {
   return (
@@ -19,7 +19,7 @@ const Home = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -1,45 +1,45 @@
-import { Link, Navigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import styles from "../style";
+import { Link, Navigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import axios from "axios"
+import styles from "../style"
 
 const BookList = () => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([])
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/view-book");
-      setBooks(response.data);
+      const response = await axios.get("http://localhost:3000/view-book")
+      setBooks(response.data)
     } catch (error) {
-      console.error("Error fetching books:", error);
+      console.error("Error fetching books:", error)
     }
-  };
+  }
 
   useEffect(() => {
-    fetchBooks();
-  }, []);
+    fetchBooks()
+  }, [])
 
   const handleEdit = (bookId) => {
-    Navigate(`/get-book/${bookId}`);
-  };
+    Navigate(`/get-book/${bookId}`)
+  }
 
   const handleDelete = async (bookId) => {
     try {
-      await axios.delete(`http://localhost:3000/delete-book/${bookId}`);
-      fetchBooks();
+      await axios.delete(`http://localhost:3000/delete-book/${bookId}`)
+      fetchBooks()
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  };
+  }
 
   const handleMarkAsRead = async (bookId) => {
     try {
-      await axios.patch(`http://localhost:3000/mark-as-read/${bookId}`);
-      fetchBooks();
+      await axios.patch(`http://localhost:3000/mark-as-read/${bookId}`)
+      fetchBooks()
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   return (
     <section id='library'>
@@ -106,7 +106,7 @@ const BookList = () => {
         )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default BookList;
+export default BookList

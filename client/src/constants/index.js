@@ -11,4 +11,4 @@ export const navLinks = [
     id: "addBook",
     title: "Add a New Book",
   },
-];
+]

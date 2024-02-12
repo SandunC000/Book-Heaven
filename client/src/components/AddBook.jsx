@@ -1,6 +1,6 @@
-import { useState } from "react";
-import styles from "../style";
-import axios from "axios";
+import { useState } from "react"
+import styles from "../style"
+import axios from "axios"
 
 const AddBook = ({ onAddBook }) => {
   const [newBook, setNewBook] = useState({
@@ -9,11 +9,11 @@ const AddBook = ({ onAddBook }) => {
     publicationDate: "",
     genre: "",
     ISBN: "",
-  });
+  })
 
   const handleInputChange = (e) => {
-    setNewBook({ ...newBook, [e.target.name]: e.target.value });
-  };
+    setNewBook({ ...newBook, [e.target.name]: e.target.value })
+  }
 
   const handleAddBook = async () => {
     // Check if any field is empty
@@ -24,29 +24,29 @@ const AddBook = ({ onAddBook }) => {
       !newBook.publicationDate ||
       !newBook.ISBN
     ) {
-      console.error("Please fill in all fields before adding the book.");
-      return;
+      console.error("Please fill in all fields before adding the book.")
+      return
     } else {
       try {
         const response = await axios.post("http://localhost:3000/upload-book", newBook, {
           headers: {
             "Content-Type": "application/json",
           },
-        });
+        })
 
-        onAddBook(response.data);
+        onAddBook(response.data)
         setNewBook({
           title: "",
           author: "",
           genre: "",
           ISBN: "",
           publicationDate: "",
-        });
+        })
       } catch (error) {
-        console.error("Error adding book:", error);
+        console.error("Error adding book:", error)
       }
     }
-  };
+  }
 
   return (
     <section id='addBook' className='bg-primary'>
@@ -133,7 +133,7 @@ const AddBook = ({ onAddBook }) => {
         </div>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default AddBook;
+export default AddBook

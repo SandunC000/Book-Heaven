@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import styles from "../style";
+import { useState, useEffect } from "react"
+import { useParams } from "react-router"
+import { Link } from "react-router-dom"
+import axios from "axios"
+import styles from "../style"
 
 const BookEdit = () => {
   const [editedBook, setEditedBook] = useState({
@@ -12,38 +12,38 @@ const BookEdit = () => {
     genre: "",
     ISBN: "",
     isRead: "",
-  });
+  })
 
-  const { bookId } = useParams();
+  const { bookId } = useParams()
 
   useEffect(() => {
     const fetchBookDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/get-book/${bookId}`);
-        setEditedBook(response.data);
+        const response = await axios.get(`http://localhost:3000/get-book/${bookId}`)
+        setEditedBook(response.data)
       } catch (error) {
-        console.error("Error fetching book:", error);
+        console.error("Error fetching book:", error)
       }
-    };
+    }
 
-    fetchBookDetails();
-  }, [bookId]);
+    fetchBookDetails()
+  }, [bookId])
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setEditedBook((prevBook) => ({
       ...prevBook,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
   const handleUpdateBook = async () => {
     try {
-      await axios.patch(`http://localhost:3000/update-book/${bookId}`, editedBook);
+      await axios.patch(`http://localhost:3000/update-book/${bookId}`, editedBook)
     } catch (error) {
-      console.error("Error updating book:", error);
+      console.error("Error updating book:", error)
     }
-  };
+  }
 
   return (
     <div className={`bg-primary h-screen flex flex-col p-5`}>
@@ -141,7 +141,7 @@ const BookEdit = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BookEdit;
+export default BookEdit

@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { BookList, AddBook, Navbar, Home } from "./components";
-import "./index.css";
-import styles from "./style";
+import { useState } from "react"
+import { BookList, AddBook, Navbar, Home } from "./components"
+import "./index.css"
+import styles from "./style"
 
 const App = () => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([])
 
   const handleAddBook = (newBook) => {
-    setBooks([...books, newBook.ops[0]]);
-  };
+    setBooks([...books, newBook.ops[0]])
+  }
 
   return (
     <div className='bg-primary w-full overflow-hidden'>
@@ -31,7 +31,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
